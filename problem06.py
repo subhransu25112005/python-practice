@@ -1,0 +1,12 @@
+a = "Hello Everyone"
+print(a.lower())
+print(a.upper())
+print(a.strip())
+print(a.replace("hello","python"))
+print(a.count('E'))
+print(a.title())
+print(a.isalpha())
+print(a.isdigit())
+print(a.isalnum())
+print(a.capitalize())
+print(a.find('o'))
