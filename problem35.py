@@ -1,7 +1,9 @@
 words = {
     "chair" :"kurshi",
     "window":"khidki",
-    "wall":"dibaar"
+    "wall":"dibaar" ,
+    "roof" : "chat" ,
+
 }
 word = input("Enter your word here: ")
 if(word in words):
