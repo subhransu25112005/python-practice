@@ -24,9 +24,9 @@ print("Minimum mark:", min_mark)
 
 # 10. Create a nested dictionary and print one student's data
 students = {
-    "Amit": {"roll": 101, "branch": "CSE", "marks": 85},
+    "Arpita": {"roll": 101, "branch": "CSE", "marks": 95},
     "Neha": {"roll": 102, "branch": "ECE", "marks": 90},
-    "Raj": {"roll": 103, "branch": "ME", "marks": 78}
+    "sai": {"roll": 103, "branch": "ME", "marks": 78}
 }
 print("\nData for Neha:")
 print(students["Neha"])
