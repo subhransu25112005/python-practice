@@ -13,7 +13,9 @@ print(arr.dtype)
 print(arr[0])
 print(arr[1:4])
 print(arr[0,0])
-
+print(np.sum(a))
+print(np.mean(a))
+print(np.max(a))
 
 arr = np.zeros((2, 3))
 print(arr)

@@ -22,11 +22,3 @@ min_mark = min(merged.values())
 print("\nMaximum mark:", max_mark)
 print("Minimum mark:", min_mark)
 
-# 10. Create a nested dictionary and print one student's data
-students = {
-    "Arpita": {"roll": 101, "branch": "CSE", "marks": 95},
-    "Neha": {"roll": 102, "branch": "ECE", "marks": 90},
-    "sai": {"roll": 103, "branch": "ME", "marks": 78}
-}
-print("\nData for Neha:")
-print(students["Neha"])
