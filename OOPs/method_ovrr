@@ -1,0 +1,27 @@
+class Vehicle:
+    def start(self):
+        print("Vehicle is starting")
+
+
+class Car(Vehicle):
+    def start(self):
+        print("Car starts with key ignition")
+
+
+class Bike(Vehicle):
+    def start(self):
+        print("Bike starts with self-start button")
+
+
+def main():
+    v = Vehicle()
+    c = Car()
+    b = Bike()
+
+    v.start()
+    c.start()
+    b.start()
+
+
+if __name__ == "__main__":
+    main()
