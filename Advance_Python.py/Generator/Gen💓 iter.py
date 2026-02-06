@@ -5,4 +5,4 @@ def count_up(n):
 		count += 1
 
 g = count_up(5)
-print(iter(g) is g)  
+print(iter(g) is g) 
