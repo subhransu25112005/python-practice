@@ -11,7 +11,7 @@ def play(songs):
         yield f"Playing {song}"
 
 
-songs = ["Song1", "Song2", "Song3"]
+songs = ["Song01", "Song02", "Song03"]
 
 player = play(decode(song_source(songs)))
 
