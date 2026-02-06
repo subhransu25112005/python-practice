@@ -12,7 +12,7 @@ def square(nums):
         yield num * num
 
 
-pipeline = square(even_filter(numbers(10)))
+pipeline = square(even_filter(numbers(25)))
 
 for result in pipeline:
     print(result)
