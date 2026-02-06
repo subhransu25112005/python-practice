@@ -6,7 +6,7 @@ def sensor_data():
 
 def alert_filter(data):
     for value in data:
-        if value > 5:
+        if value > 10:
             yield value
 
 
