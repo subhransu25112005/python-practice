@@ -4,5 +4,5 @@ def gen_nums():
 
 g = gen_nums()
 print(next(g))  
-print(next(g))  
+print(next(g)) 
 
