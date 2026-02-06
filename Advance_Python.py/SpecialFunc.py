@@ -1,6 +1,6 @@
 # Student data
 names = ["Amit", "Neha", "Ravi", "Priya", "Karan"]
-marks = [35, 78, 42, 90, 28]
+marks = [35, 78, 42, 90, 25]
 completed = [True, True, False, True, True]
 
 #  Combine data using zip
