@@ -1,5 +1,5 @@
 balance = 10000
-PIN = 6969
+PIN = 6965
 
 print("=== Welcome to ATM ===")
 
