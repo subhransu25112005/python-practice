@@ -119,6 +119,8 @@ PDF export of results
 Emotional trend visualization
 
 Mobile-friendly UI
+Cheak it:
+https://emotiondct.streamlit.app/
 
 👤 Author
 
