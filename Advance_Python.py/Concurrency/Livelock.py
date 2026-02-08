@@ -14,7 +14,7 @@ def task2():
 '''def task1():
     while True:
         print("Task 1: Trying to proceed")
-        time.sleep(1)
+        time.sleep(0)
 
 def task2():
     while True:
