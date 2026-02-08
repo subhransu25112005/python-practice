@@ -7,7 +7,7 @@ def vip_player():
     while True:
         with counter_lock:
             print("👑 VIP got the ticket")
-            time.sleep(0.1)   # VIP uses counter quickly
+            time.sleep(0.2)   # VIP uses counter quickly
 
 def normal_player():
     while True:
