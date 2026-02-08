@@ -50,9 +50,9 @@ def deadlock_game():
 
     def player_b():
         with key2:
-            print("🧝 Player B got Key-2")
+            print("🧝 Player B got Key2")
             time.sleep(1)
-            print("🧝 Player B waiting for Key-1")
+            print("🧝 Player B waiting for Key1")
             with key1:
                 print("🧝 Player B escaped")
 
