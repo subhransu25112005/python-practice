@@ -22,7 +22,7 @@ def player_a():
     while True:
         if player_b_ready:
             print("🤵 Player A: You go first!")
-            time.sleep(0.5)
+            time.sleep(0.4)
         else:
             print("🤵 Player A passed through corridor")
             break

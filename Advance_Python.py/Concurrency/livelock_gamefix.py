@@ -12,7 +12,7 @@ player_b_ready = True
             print("🤵 Player A: You go first!")
             time.sleep(0.5)
         else:
-            print("🤵 Player A passed through corridor")
+            print("🤵 Player A passed through coridor")
             break
 
 def player_b():
