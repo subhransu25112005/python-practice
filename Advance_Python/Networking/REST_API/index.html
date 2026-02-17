@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Create Task</h2>
+
+<input id="title" placeholder="Title"><br><br>
+<input id="desc" placeholder="Description"><br><br>
+
+<button onclick="sendTask()">Send Task</button>
+
+<script>
+function sendTask() {
+
+fetch("http://127.0.0.1:8000/tasks", {
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+        title: document.getElementById("title").value,
+        description: document.getElementById("desc").value,
+        completed: false
+    })
+})
+.then(res => res.json())
+.then(data => alert("Task Created: " + JSON.stringify(data)))
+}
+</script>
+
+</body>
+</html>
