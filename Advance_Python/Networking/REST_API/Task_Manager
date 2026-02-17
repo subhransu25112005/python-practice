@@ -1,0 +1,109 @@
+from fastapi import FastAPI, HTTPException
+from sqlalchemy import create_engine, Column, Integer, String, Boolean
+from sqlalchemy.orm import declarative_base, sessionmaker
+
+# ---------------- DATABASE SETUP ----------------
+
+DATABASE_URL = "sqlite:///./tasks.db"
+
+engine = create_engine(DATABASE_URL, connect_args={"check_same_thread": False})
+Base = declarative_base()
+SessionLocal = sessionmaker(bind=engine)
+
+# ---------------- MODEL ----------------
+
+class Task(Base):
+    __tablename__ = "tasks"
+
+    id = Column(Integer, primary_key=True, index=True)
+    title = Column(String, nullable=False)
+    description = Column(String, nullable=True)
+    completed = Column(Boolean, default=False)
+
+Base.metadata.create_all(bind=engine)
+
+# ---------------- APP ----------------
+
+app = FastAPI(title="Task Manager API")
+
+# ---------------- CREATE TASK ----------------
+
+@app.post("/tasks")
+def create_task(title: str, description: str = ""):
+    db = SessionLocal()
+    task = Task(title=title, description=description)
+    db.add(task)
+    db.commit()
+    db.refresh(task)
+    db.close()
+    return {"message": "Task created", "task_id": task.id}
+
+# ---------------- GET ALL TASKS ----------------
+
+@app.get("/tasks")
+def get_tasks():
+    db = SessionLocal()
+    tasks = db.query(Task).all()
+    db.close()
+
+    return [
+        {
+            "id": t.id,
+            "title": t.title,
+            "description": t.description,
+            "completed": t.completed
+        }
+        for t in tasks
+    ]
+
+# ---------------- GET SINGLE TASK ----------------
+
+@app.get("/tasks/{task_id}")
+def get_task(task_id: int):
+    db = SessionLocal()
+    task = db.query(Task).filter(Task.id == task_id).first()
+    db.close()
+
+    if not task:
+        raise HTTPException(status_code=404, detail="Task not found")
+
+    return {
+        "id": task.id,
+        "title": task.title,
+        "description": task.description,
+        "completed": task.completed
+    }
+
+# ---------------- UPDATE TASK ----------------
+
+@app.put("/tasks/{task_id}")
+def update_task(task_id: int, completed: bool):
+    db = SessionLocal()
+    task = db.query(Task).filter(Task.id == task_id).first()
+
+    if not task:
+        db.close()
+        raise HTTPException(status_code=404, detail="Task not found")
+
+    task.completed = completed
+    db.commit()
+    db.close()
+
+    return {"message": "Task updated"}
+
+# ---------------- DELETE TASK ----------------
+
+@app.delete("/tasks/{task_id}")
+def delete_task(task_id: int):
+    db = SessionLocal()
+    task = db.query(Task).filter(Task.id == task_id).first()
+
+    if not task:
+        db.close()
+        raise HTTPException(status_code=404, detail="Task not found")
+
+    db.delete(task)
+    db.commit()
+    db.close()
+
+    return {"message": "Task deleted"}
